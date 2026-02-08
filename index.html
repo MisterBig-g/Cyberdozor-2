@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>КиберДозор</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🛡 КиберДозор</h1>
+  <p>Интерактивный тренажёр по кибербезопасности</p>
+</header>
+
+<main>
+<section id="home" class="active">
+  <h2>Проверь свою цифровую бдительность!</h2>
+  <button onclick="goTo('trainer')">🚀 Начать тренировку</button>
+  <button onclick="goTo('theory')">📚 Теория</button>
+</section>
+
+<section id="trainer">
+  <h2>🎯 Основной тренажёр</h2>
+
+  <div class="task">
+    <h3>1. Фишинговое письмо</h3>
+    <p>Кликни на подозрительную часть:</p>
+    <div class="mail">
+      <p><b>От:</b> support@paypaI-security.com</p>
+      <p><b>Тема:</b> Срочно подтвердите аккаунт!</p>
+      <p>Ссылка: <span class="danger" onclick="phishFound()">paypal-verification.ru</span></p>
+    </div>
+    <p id="phishResult"></p>
+  </div>
+
+  <div class="task">
+    <h3>2. Где скачать программу?</h3>
+    <p>Выбери безопасный вариант:</p>
+    <button onclick="downloadChoice(false)">🎁 Бесплатно (взлом)</button>
+    <button onclick="downloadChoice(true)">✅ Официальный сайт</button>
+    <button onclick="downloadChoice(false)">⚠ Торрент</button>
+    <p id="downloadResult"></p>
+  </div>
+
+  <div class="task">
+    <h3>3. Проверка пароля</h3>
+    <input type="text" id="passwordInput" placeholder="Введите пароль" oninput="checkPassword()">
+    <p id="passwordStrength"></p>
+  </div>
+
+  <button onclick="goTo('quiz')">➡ Перейти к тесту</button>
+</section>
+
+<section id="quiz">
+  <h2>🧩 Итоговый тест</h2>
+  <div id="quizBox"></div>
+  <button onclick="finishQuiz()">🏁 Завершить</button>
+</section>
+
+<section id="theory">
+  <h2>📚 Теория-шпаргалка</h2>
+  <div class="cards">
+    <div class="card"><h3>Фишинг</h3><p>Поддельные письма и сайты для кражи данных.</p></div>
+    <div class="card"><h3>Трояны</h3><p>Программы, маскирующиеся под полезные.</p></div>
+    <div class="card"><h3>Шифровальщики</h3><p>Шифруют файлы и требуют выкуп.</p></div>
+    <div class="card"><h3>Защита</h3><p>Антивирус + обновления + осторожность.</p></div>
+  </div>
+  <button onclick="goTo('home')">⬅ Назад</button>
+</section>
+
+<section id="result">
+  <h2>📌 Результаты</h2>
+  <p id="finalText"></p>
+  <p id="finalTip"></p>
+  <button onclick="restart()">🔄 Пройти снова</button>
+</section>
+</main>
+
+<footer><p>Проект 10 класс • 2026</p></footer>
+<script src="script.js"></script>
+</body>
+</html>
